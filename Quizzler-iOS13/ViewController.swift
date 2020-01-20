@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressBar.progress = 0.0
         updateUI()
     }
 
@@ -56,6 +57,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateUI() {
+        progressBar.progress = Float(questionNumber + 1) / Float(quiz.count)
         questionLabel.text = quiz[questionNumber].text
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
