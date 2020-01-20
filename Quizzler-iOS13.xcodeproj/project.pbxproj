@@ -44,7 +44,6 @@
 		AD4BDE3D22D878BA005BA4CC = {
 			isa = PBXGroup;
 			children = (
-				1326BD1423D5F6610039EB1D /* Question.swift */,
 				AD7631B522F9851900C6E71B /* README.md */,
 				AD4BDE4822D878BA005BA4CC /* Quizzler-iOS13 */,
 				AD4BDE4722D878BA005BA4CC /* Products */,
@@ -66,6 +65,7 @@
 				AD4BDE4B22D878BA005BA4CC /* SceneDelegate.swift */,
 				AD4BDE4F22D878BA005BA4CC /* Main.storyboard */,
 				AD4BDE4D22D878BA005BA4CC /* ViewController.swift */,
+				1326BD1423D5F6610039EB1D /* Question.swift */,
 				AD4BDE5222D878BC005BA4CC /* Assets.xcassets */,
 				AD4BDE5422D878BC005BA4CC /* LaunchScreen.storyboard */,
 				AD4BDE5722D878BC005BA4CC /* Info.plist */,
