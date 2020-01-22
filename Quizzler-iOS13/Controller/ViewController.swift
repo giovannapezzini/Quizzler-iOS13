@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var choice1: UIButton!
+    @IBOutlet weak var choice2: UIButton!
+    @IBOutlet weak var choice3: UIButton!
     
     var quizBrain = QuizBrain()
         
@@ -28,21 +29,28 @@ class ViewController: UIViewController {
         let userGotItRight = quizBrain.checkAnswer(userAnswer)
         
         if userGotItRight {
-            sender.backgroundColor = UIColor.green
+            sender.setBackgroundImage(#imageLiteral(resourceName: "Green-Rectangle"), for: .normal)
         } else {
-            sender.backgroundColor = UIColor.red
+            sender.setBackgroundImage(#imageLiteral(resourceName: "Red-Rectangle"), for: .normal)
         }
         
         quizBrain.nextQuestion()
-        
-        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
     
     @objc func updateUI() {
         questionLabel.text = quizBrain.getQuestionText()
+        
+        let answerChoices = quizBrain.getAnswersText()
+        choice1.setTitle(answerChoices[0], for: .normal)
+        choice2.setTitle(answerChoices[1], for: .normal)
+        choice3.setTitle(answerChoices[2], for: .normal)
+        
         progressBar.progress = quizBrain.getProgress()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+        
+        choice1.setBackgroundImage(#imageLiteral(resourceName: "Blue-Rectangle"), for: .normal)
+        choice2.setBackgroundImage(#imageLiteral(resourceName: "Blue-Rectangle"), for: .normal)
+        choice3.setBackgroundImage(#imageLiteral(resourceName: "Blue-Rectangle"), for: .normal)
     }
 }
